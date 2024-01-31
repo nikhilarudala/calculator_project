@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="cal.css">
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <div class="card bg-secondary w-25 h-10 m-auto ">
+
+        <div class="d0 card-header m-auto text-light">
+            CALCULATOR <span class="text-alert">[pls only give 2 values as input after that click equal to and then continue proces..with different operations.]</span>
+        </div>
+        <div class="card-body text-dark">
+            <div class="d00  bg-light text-dark rounded">
+               
+              </div>
+            
+            <div class="d1 d-flex">
+                <div class="mt-3 bg-light rounded ml-1 i7">AC</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">BACKSPACE</div>
+                <div class="mt-3 bg-light rounded ml-1 i7"><span class="p-4">.</span></div>
+            </div>
+            <div class="d1 d-flex">
+                <div class="mt-3 bg-light rounded ml-1 i7">7</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">8</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">9</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">*</div>
+            </div>
+        
+            <div class="d1 d-flex">
+                <div class="mt-3 bg-light rounded ml-1 i7">4</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">5</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">6</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">-</div>
+            </div>
+            <div class="d1 d-flex">
+                <div class="mt-3 bg-light rounded ml-1 i7">1</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">2</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">3</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">+</div>
+            </div>
+            <div class="d1 d-flex">
+                <div class="mt-3 bg-light rounded ml-1 i7">%</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">0</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">/</div>
+                <div class="mt-3 bg-light rounded ml-1 i7">=</div>
+            </div>
+   
+        </div>
+    </div>
+
+
+    
+    <script>
+       let a;
+       let p='';
+       var op,p1,previous_a;
+        $(".i7").click(function(){
+            a=$(this).text();
+            console.log(a);
+            if(a>=0 || a==='.')
+            {
+                
+                p+=a;
+                console.log(p);
+                $(".d00").text(p);
+                next=p.slice(1,((p.length)));
+                    console.log(next);
+                op=p[0];
+                console.log(op);
+                console.log(previous_a);
+               
+            }
+            if(a==='AC')
+            {
+                $(".d00").empty();
+                p="";
+            }
+            if(a==='BACKSPACE')
+            {
+                p=p.slice(0,p.length-1);
+                $(".d00").text(p);
+            }
+            if(a==='+')
+            {   
+                console.log(p);
+                console.log(p.length);
+                if((p.charAt(p.length))!='+')
+                {
+                    previous_a=p;
+                    console.log(previous_a);
+                    p="";
+                    p+=a;
+                    console.log(p);
+                    $(".d00").text(p);
+                }
+            
+            }
+            if(a==='-')
+            {   
+                    previous_a=p;
+                    console.log(previous_a);
+                    p="";
+                    p+=a;
+                    console.log(p);
+                    $(".d00").text(p);
+            }
+            if(a==='*')
+            {   
+                previous_a=p;
+                    console.log(previous_a);
+                    p="";
+                    p+=a;
+                    console.log(p);
+                    $(".d00").text(p);
+            }
+            if(a==='/')
+            {   
+                previous_a=p;
+                    console.log(previous_a);
+                    p="";
+                    p+=a;
+                    console.log(p);
+                    $(".d00").text(p);
+            }
+            if(a==='%')
+            {   
+                previous_a=p;
+                    console.log(previous_a);
+                    p="";
+                    p+=a;
+                    console.log(p);
+                    $(".d00").text(p);
+            }
+            if(a==='=')
+            {
+                console.log("hlo");
+                if(op==='+')
+                {
+                    p=Number(next)+Number(previous_a);
+                    p1="";
+                    p1+=p;
+                    p=p1;
+                    console.log("gh");
+                    $(".d00").text(p);
+                }
+                if(op==='-')
+                {
+                    p=Number(previous_a)-Number(next);
+                    p1="";
+                    p1+=p;
+                    p=p1;
+                    console.log("lk");
+                    $(".d00").text(p);
+                }
+                if(op==='*')
+                {
+                    p=Number(previous_a)*Number(next);
+                    p1="";
+                    p1+=p;
+                    p=p1;
+                    console.log("lk");
+                    $(".d00").text(p);
+                }
+                if(op==='/')
+                {
+                    p=Number(previous_a)/Number(next);
+                    p1="";
+                    p1+=p;
+                    p=p1;
+                    console.log("lk");
+                    $(".d00").text(p);
+                }
+                if(op==='%')
+                {
+                    p=Number(previous_a)%Number(next);
+                    p1="";
+                    p1+=p;
+                    p=p1;
+                    console.log("lk");
+                    $(".d00").text(p);
+                }
+            }
+        })
+    </script>
+    </body>
+</html>
